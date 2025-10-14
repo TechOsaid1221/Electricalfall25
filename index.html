@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Material By Osaid</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Light blue background */
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff; /* Primary blue for header */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #card-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border: 2px solid #cce5ff; /* Lighter blue border */
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 4px
+        }
+
+        .card h2 {
+            color: #0056b3; /* Darker blue for titles */
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .pdf-embed {
+            margin: 20px 0;
+            /* Ensure the iframe scales well */
+            overflow: hidden; 
+        }
+        
+        /* The iframe itself needs to be responsive within the container */
+        .pdf-embed iframe {
+            display: block;
+            width: 100%;
+        }
+
+        /* Style for the Time Table Image */
+        .card img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 15px;
+            border-radius: 6px;
+            border: 3px solid #cce5ff; /* Light blue frame */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: #00aaff; /* Action blue for button */
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #0077cc;
+        }
+        
+        /* Utility class for margin top on buttons */
+        .mt-4 {
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            #card-container {
+                padding: 10px;
+            }
+            .card {
+                padding: 15px;
+            }
+            .download-btn {
+                width: 100%;
+                text-align: center;
+                box-sizing: border-box; /* Include padding/border in element's total width */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Study Material by Osaid</h1>
+        <p>A place for my friends to view and download Notes.</p>
+        <p><i>BSC Electrical Engineering</i></p>
+    </header>
+
+    <main id="card-container">
+        
+        <!-- Existing Card 1: Applied Physics -->
+        <section class="card">
+            <h2>Applied Physics Notes Classwork</h2>
+            <div class="pdf-embed">
+                <iframe 
+                    src="https://drive.google.com/file/d/137H78TUQkoc7Sr7VN-OfOWtVBZSyOadw/preview?usp=drivesdk" 
+                    width="100%" 
+                    height="400px" 
+                    style="border:0;" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <!-- NOTE: The download link was slightly modified for better compatibility. -->
+            <a href="https://drive.google.com/uc?export=download&id=137H78TUQkoc7Sr7VN-OfOWtVBZSyOadw" target="_blank" class="download-btn">Download Notes</a>
+        </section>
+        
+        <!-- Existing Card 2: Calculus -->
+        <section class="card">
+            <h2>Calculus Excercises</h2>
+            <div class="pdf-embed">
+                <iframe 
+                    src="https://drive.google.com/file/d/YOUR_FILE_ID_2/preview" 
+                    width="100%" 
+                    height="400px" 
+                    style="border:0;" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_2" target="_blank" class="download-btn">Download Notes</a>
+        </section>
+
+        <!-- NEW SECTION: Time Table -->
+        <section class="card">
+            <h2>BSC Electrical Engineering Time Table</h2>
+            <p>Here is the weekly schedule. Click the button to download the image.</p>
+            
+            <!-- 
+                ACTION REQUIRED: 
+                REPLACE the placeholder image URL below with the actual URL of your time table picture 
+                (e.g., hosted on Google Photos, Imgur, or a dedicated image hosting service). 
+            -->
+            <img 
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDvEfTyFU1-TJqqB1WoOfFcODFjIk8n-fBaPJTB9jHNw6WyxnlshxTuBySSfYhLySgEQQ2_49gantjXl7gLBsLd4IlBYJiS0i_4ufJxDGVGVT0ITU5x9KoZUMkY1YhCKlnEze6gY-pO6H-jICJhxMAL7kWylQxP4yBA1wJdknPOklbEGx88xMk-YMs89M/s1752/1000069202.jpg" 
+                alt="Class Time Table" 
+                class="time-table-img">
+
+           
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; Created by Osaid Ur Rehman</p>
+    </footer>
+</body>
+</html>
