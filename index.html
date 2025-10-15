@@ -6,20 +6,176 @@
     <title>Study Material By Osaid</title>
     
     <style>
+        /* New Header and Navigation Styles */
+        header {
+            background: linear-gradient(135deg, #35d486fb 0%, #2a9d8f 100%);
+            color: white;
+            padding: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            padding: 30px 20px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-content h1 {
+            margin: 0 0 10px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .header-content p {
+            margin: 5px 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .header-accent {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0 0 0 100%;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #2a9d8f;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            font-size: 1.6rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #2a9d8f;
+            background-color: rgba(42, 157, 143, 0.05);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 3px;
+            background-color: #2a9d8f;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #2a9d8f;
+        }
+
+        /* Existing Styles (unchanged) */
+        .rect-card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 5px 15px;
+        }
+
+        .rect-card {
+            display: flex;
+            background-color: #ffffff;
+            border: 2px solid #1976d2;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 100px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .rect-card img {
+            width: 100px;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rect-card-content {
+            padding: 10px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .rect-card-content h4 {
+            margin: 0;
+            color: #1976d2;
+            font-size: 16px;
+        }
+
+        .rect-card-content p {
+            margin: 4px 0 0;
+            font-size: 13px;
+            color: #333;
+        }
+        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f0f8ff; /* Light blue background */
             color: #333;
-        }
-
-        header {
-            background-color: #35d486fb; /* Primary blue for header */
-            color: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         #card-container {
@@ -31,7 +187,7 @@
         .card {
             background-color: white;
             border: 2px solid #cce5ff; /* Lighter blue border */
-            border-radius: 8px;
+            border-radius: 5px;
             padding: 20px;
             margin-bottom: 25px;
             box-shadow: 0 2px 4px
@@ -62,7 +218,7 @@
             height: auto;
             display: block;
             margin-top: 15px;
-            border-radius: 6px;
+            border-radius: 5px;
             border: 3px solid #cce5ff; /* Light blue frame */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -95,6 +251,37 @@
         }
 
         /* Responsive styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 15px 20px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+        }
+
         @media (max-width: 600px) {
             #card-container {
                 padding: 10px;
@@ -112,9 +299,31 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to EE-F25 by Osaid</h1>
-        <p style="color:black;">A place for my classmates to view and download Notes.</p>
-        <p style="color:black;"><i>BSC Electrical Engineering</i></p>
+        <div class="header-accent"></div>
+        <div class="header-content">
+            <h1>Welcome to EE-F25 by Osaid</h1>
+            <p style="color:white;">A place for my classmates to view and download Notes.</p>
+            <p style="color:white;"><i>BSC Electrical Engineering</i></p>
+        </div>
+        
+        <nav>
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    EE-F25
+                </a>
+                
+                <button class="mobile-menu-btn">☰</button>
+                
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Notes</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Time Table</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <main id="card-container">
@@ -150,6 +359,23 @@
             <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_2" target="_blank" class="download-btn">Download Notes</a>
         </section>
 
+<!-- Existing Card 3 -->
+    <section class="card">
+            <h2>Physics Quiz F-22,23,24</h2>
+            <div class="pdf-embed">
+                <iframe 
+                    src="https://drive.google.com/file/d/1_AaDSvDc_7A6AJW5RYP1TfvPbtWjjui4/preview?usp=drivesdk" 
+                    width="100%" 
+                    height="400px" 
+                    style="border:0;" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <!-- NOTE: The download link was slightly modified for better compatibility. -->
+            <a href="https://drive.google.com/file/d/1_AaDSvDc_7A6AJW5RYP1TfvPbtWjjui4/view?usp=drivesdk" target="_blank" class="download-btn">Download Notes</a>
+        </section>
+        <!-- 3 -->
+
         <!-- NEW SECTION: Time Table -->
         <section class="card">
             <h2>BSC Electrical Engineering Time Table</h2>
@@ -165,27 +391,49 @@
                 alt="Class Time Table" 
                 class="time-table-img">
   </section>
-           <hr style="margin-top:15px ;">                  
+           <hr style="margin-top:15px ;">
+           <!-- channels -->  
+                           
         <section>
-            <h2>CALCULUS COURSES</h2>
-            <div style="border: 1px solid #ccc; padding: 15px; margin: 10px; border-radius: 5px;background-color:white;">
-  <h3>YouTube Channel 1: Mathematics Outlet</h3>
-  <p>Complex topics, made simple.</p>
-  <a href="https://youtube.com/@themathematicsoutlet?si=fGX-hSfZAD1WQZuW" target="_blank">Visit Calculus Course Channel</a>
-</div>
+        <h2>EE-F25 Courses</h2>  
+       <div class="rect-card-container">
 
-<div style="border: 1px solid #ccc; padding: 15px; margin: 10px; border-radius: 5px;background-color:white;">
-  <h3>YouTube Channel 2: Msn Mathematician</h3>
-  <p>Free lessons for math</p>
-  <a href="https://youtube.com/@msnmathematician?si=iAN2XdO2GYuE5oBs" target="_blank">Visit MSN Academy Channel</a>
-</div>
+  <div class="rect-card">
+    <img src="https://yt3.googleusercontent.com/BFarBU3fXSsKeGdZdIv0odj1hMKZp7p924krrrHZ7ZVluQ39f7aA-qkOWWvI1LRTWePHnzwf3A=s160-c-k-c0x00ffffff-no-rj" alt="Card 2">
+    <div class="rect-card-content">
+      <h4>Calculus Math Outlet</h4>
+      <a href="https://youtube.com/@themathematicsoutlet?si=fGX-hSfZAD1WQZuW"><p>Click here Deep Understanding</p></a>
+    </div>
+  </div>
 
-        </section>
-       
+  <div class="rect-card">
+    <img src="https://yt3.googleusercontent.com/tM0MY1bDwtdRdhLBlGiIszF4E46dd5oOiTkaKmNbdOPXNMXUeDSXblCk3lFiFATP759Zxnzf=s160-c-k-c0x00ffffff-no-rj" alt="Card 3">
+    <div class="rect-card-content">
+      <h4>Calculus MSN Maths</h4>
+     <a href="https://youtube.com/@msnmathematician?si=iAN2XdO2GYuE5oBs"> <p>Click here to access channel</p></a>
+    </div>
+  </div>
+</div>
+    </section>
+      <!-- channels -->
     </main>
 
     <footer>
         <p>&copy; Created by Osaid Ur Rehman</p>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
