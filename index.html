@@ -6,9 +6,18 @@
     <title>Study Material By Osaid</title>
     
     <style>
+        /* Define a CSS Variable for the primary color for consistency */
+        :root {
+            --primary-color: #2a9d8f; /* Darker green/teal from the header gradient */
+            --light-primary-color: #35d486; /* Lighter green/teal from the header gradient */
+            --secondary-color: #1976d2; /* Existing blue for cards */
+            --background-color: #f0f8ff;
+        }
+
         /* New Header and Navigation Styles */
         header {
-            background: linear-gradient(135deg, #35d486fb 0%, #2a9d8f 100%);
+            /* Using CSS variables for a maintainable color scheme */
+            background: linear-gradient(135deg, var(--light-primary-color) 0%, var(--primary-color) 100%);
             color: white;
             padding: 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -65,7 +74,8 @@
         .logo {
             font-weight: 700;
             font-size: 1.4rem;
-            color: #2a9d8f;
+            /* Use primary color */
+            color: var(--primary-color);
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -98,7 +108,8 @@
         }
 
         .nav-links a:hover {
-            color: #2a9d8f;
+            /* Use primary color on hover */
+            color: var(--primary-color);
             background-color: rgba(42, 157, 143, 0.05);
         }
 
@@ -109,7 +120,8 @@
             left: 20px;
             right: 20px;
             height: 3px;
-            background-color: #2a9d8f;
+            /* Use primary color for hover underline */
+            background-color: var(--primary-color);
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
@@ -124,10 +136,11 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: #2a9d8f;
+            /* Use primary color for the button */
+            color: var(--primary-color);
         }
 
-        /* Existing Styles (unchanged) */
+        /* Existing Styles (updated) */
         .rect-card-container {
             display: flex;
             flex-direction: column;
@@ -138,17 +151,26 @@
         .rect-card {
             display: flex;
             background-color: #ffffff;
-            border: 2px solid #1976d2;
-            border-radius: 5px;
+            /* Use secondary color for border */
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px; /* Slightly rounded corners */
             overflow: hidden;
             height: 100px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        
+        .rect-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
         .rect-card img {
             width: 100px;
             height: 100%;
             object-fit: cover;
+            /* Add a subtle separation border */
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .rect-card-content {
@@ -160,21 +182,27 @@
 
         .rect-card-content h4 {
             margin: 0;
-            color: #1976d2;
-            font-size: 16px;
+            /* Use secondary color for title */
+            color: var(--secondary-color);
+            font-size: 18px; /* Slightly larger title */
         }
 
         .rect-card-content p {
             margin: 4px 0 0;
-            font-size: 13px;
-            color: #333;
+            font-size: 14px;
+            color: #555; /* Slightly softer text color */
         }
         
+        /* Style for the link inside rect-card-content */
+        .rect-card-content a {
+            text-decoration: none;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f8ff; /* Light blue background */
+            background-color: var(--background-color);
             color: #333;
         }
 
@@ -186,30 +214,31 @@
 
         .card {
             background-color: white;
-            border: 2px solid #cce5ff; /* Lighter blue border */
-            border-radius: 5px;
-            padding: 20px;
+            border: 1px solid #cce5ff;
+            border-radius: 8px; /* Consistent border radius */
+            padding: 25px; /* Slightly more padding */
             margin-bottom: 25px;
-            box-shadow: 0 2px 4px
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Softer shadow */
         }
 
         .card h2 {
-            color: #0056b3; /* Darker blue for titles */
-            border-bottom: 2px solid #007bff;
+            /* Use primary color for card titles */
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--light-primary-color);
             padding-bottom: 10px;
             margin-top: 0;
         }
 
         .pdf-embed {
             margin: 20px 0;
-            /* Ensure the iframe scales well */
             overflow: hidden; 
+            border-radius: 4px; /* Slight rounding for the iframe container */
         }
         
-        /* The iframe itself needs to be responsive within the container */
         .pdf-embed iframe {
             display: block;
             width: 100%;
+            /* Removed redundant style from inline style, rely on external CSS */
         }
 
         /* Style for the Time Table Image */
@@ -218,23 +247,26 @@
             height: auto;
             display: block;
             margin-top: 15px;
-            border-radius: 5px;
-            border: 3px solid #cce5ff; /* Light blue frame */
+            border-radius: 8px; /* Consistent border radius */
+            border: 3px solid #cce5ff; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .download-btn {
             display: inline-block;
-            background-color: #00aaff; /* Action blue for button */
+            /* Use secondary color for the button */
+            background-color: var(--secondary-color);
             color: white;
-            padding: 10px 15px;
+            padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.1s;
+            font-weight: 600;
         }
 
         .download-btn:hover {
-            background-color: #0077cc;
+            background-color: #0056b3; /* Darker secondary color on hover */
+            transform: translateY(-1px);
         }
         
         /* Utility class for margin top on buttons */
@@ -242,12 +274,16 @@
             margin-top: 20px;
         }
 
+        /* Enhanced Footer Style */
         footer {
-            background-color: #007bff;
+            /* Match the primary color of the header's darker part */
+            background-color: var(--primary-color);
             color: white;
             text-align: center;
-            padding: 15px;
+            padding: 20px; /* More padding for a better look */
             margin-top: 40px;
+            font-size: 1.05rem;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Responsive styles */
@@ -292,7 +328,25 @@
             .download-btn {
                 width: 100%;
                 text-align: center;
-                box-sizing: border-box; /* Include padding/border in element's total width */
+                box-sizing: border-box; 
+            }
+            
+            .rect-card {
+                flex-direction: row;
+                height: auto;
+            }
+
+            .rect-card img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .rect-card-content {
+                padding: 10px;
+            }
+            
+            .rect-card-content h4 {
+                font-size: 16px;
             }
         }
     </style>
@@ -328,7 +382,6 @@
 
     <main id="card-container">
         
-        <!-- Existing Card 1: Applied Physics -->
         <section class="card">
             <h2>Applied Physics Notes Classwork</h2>
             <div class="pdf-embed">
@@ -340,11 +393,9 @@
                     allowfullscreen>
                 </iframe>
             </div>
-            <!-- NOTE: The download link was slightly modified for better compatibility. -->
             <a href="https://drive.google.com/uc?export=download&id=137H78TUQkoc7Sr7VN-OfOWtVBZSyOadw" target="_blank" class="download-btn">Download Notes</a>
         </section>
         
-        <!-- Existing Card 2: Calculus -->
         <section class="card">
             <h2>Calculus Excercises</h2>
             <div class="pdf-embed">
@@ -359,8 +410,7 @@
             <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_2" target="_blank" class="download-btn">Download Notes</a>
         </section>
 
-<!-- Existing Card 3 -->
-    <section class="card">
+<section class="card">
             <h2>Physics Quiz F-22,23,24</h2>
             <div class="pdf-embed">
                 <iframe 
@@ -371,30 +421,19 @@
                     allowfullscreen>
                 </iframe>
             </div>
-            <!-- NOTE: The download link was slightly modified for better compatibility. -->
             <a href="https://drive.google.com/file/d/1_AaDSvDc_7A6AJW5RYP1TfvPbtWjjui4/view?usp=drivesdk" target="_blank" class="download-btn">Download Notes</a>
         </section>
-        <!-- 3 -->
-
-        <!-- NEW SECTION: Time Table -->
         <section class="card">
             <h2>BSC Electrical Engineering Time Table</h2>
             <p><b>Zoom In to see</b> weekly schedule. Hold the image to download.</p>
             
-            <!-- 
-                ACTION REQUIRED: 
-                REPLACE the placeholder image URL below with the actual URL of your time table picture 
-                (e.g., hosted on Google Photos, Imgur, or a dedicated image hosting service). 
-            -->
             <img 
                 src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDvEfTyFU1-TJqqB1WoOfFcODFjIk8n-fBaPJTB9jHNw6WyxnlshxTuBySSfYhLySgEQQ2_49gantjXl7gLBsLd4IlBYJiS0i_4ufJxDGVGVT0ITU5x9KoZUMkY1YhCKlnEze6gY-pO6H-jICJhxMAL7kWylQxP4yBA1wJdknPOklbEGx88xMk-YMs89M/s1752/1000069202.jpg" 
                 alt="Class Time Table" 
                 class="time-table-img">
   </section>
            <hr style="margin-top:15px ;">
-           <!-- channels -->  
-                           
-        <section>
+           <section>
         <h2>EE-F25 Courses</h2>  
        <div class="rect-card-container">
 
@@ -415,11 +454,10 @@
   </div>
 </div>
     </section>
-      <!-- channels -->
-    </main>
+      </main>
 
     <footer>
-        <p>&copy; Created by Osaid Ur Rehman</p>
+        <p>© Created by Osaid Ur Rehman</p>
     </footer>
 
     <script>
