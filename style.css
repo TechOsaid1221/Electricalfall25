@@ -1,0 +1,362 @@
+  /* Floating WhatsApp Button CSS */
+.my-float {
+    /* Style for the WhatsApp image/icon */
+    width: 60px; /* Adjust size as needed */
+    height: 60px; /* Adjust size as needed */
+    border-radius: 50%;
+    box-shadow: 2px 2px 3px #999;
+}
+
+#whatsapp-button {
+    /* Styles to make the button float */
+    position: fixed;
+    bottom: 40px; /* Distance from the bottom of the screen */
+    right: 40px; /* Distance from the right of the screen */
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+        
+        
+        /* Define a CSS Variable for the primary color for consistency */
+        :root {
+            --primary-color: #2a9d8f; /* Darker green/teal from the header gradient */
+            --light-primary-color: #35d486; /* Lighter green/teal from the header gradient */
+            --secondary-color: #1976d2; /* Existing blue for cards */
+            --background-color: #f0f8ff;
+        }
+
+        /* New Header and Navigation Styles */
+        header {
+            /* Using CSS variables for a maintainable color scheme */
+            background: linear-gradient(135deg, var(--light-primary-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            padding: 30px 20px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-content h1 {
+            margin: 0 0 10px;
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .header-content p {
+            margin: 5px 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .header-accent {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0 0 0 100%;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.4rem;
+            /* Use primary color */
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            font-size: 1.6rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 18px 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            /* Use primary color on hover */
+            color: var(--primary-color);
+            background-color: rgba(42, 157, 143, 0.05);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 3px;
+            /* Use primary color for hover underline */
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            /* Use primary color for the button */
+            color: var(--primary-color);
+        }
+
+        /* Existing Styles (updated) */
+        .rect-card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 5px 15px;
+        }
+
+        .rect-card {
+            display: flex;
+            background-color: #ffffff;
+            /* Use secondary color for border */
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px; /* Slightly rounded corners */
+            overflow: hidden;
+            height: 100px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        
+        .rect-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .rect-card img {
+            width: 100px;
+            height: 100%;
+            object-fit: cover;
+            /* Add a subtle separation border */
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .rect-card-content {
+            padding: 10px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .rect-card-content h4 {
+            margin: 0;
+            /* Use secondary color for title */
+            color: var(--secondary-color);
+            font-size: 18px; /* Slightly larger title */
+        }
+
+        .rect-card-content p {
+            margin: 4px 0 0;
+            font-size: 14px;
+            color: #555; /* Slightly softer text color */
+        }
+        
+        /* Style for the link inside rect-card-content */
+        .rect-card-content a {
+            text-decoration: none;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: #333;
+        }
+
+        #card-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid #cce5ff;
+            border-radius: 8px; /* Consistent border radius */
+            padding: 25px; /* Slightly more padding */
+            margin-bottom: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Softer shadow */
+        }
+
+        .card h2 {
+            /* Use primary color for card titles */
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--light-primary-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .pdf-embed {
+            margin: 20px 0;
+            overflow: hidden; 
+            border-radius: 4px; /* Slight rounding for the iframe container */
+        }
+        
+        .pdf-embed iframe {
+            display: block;
+            width: 100%;
+            /* Removed redundant style from inline style, rely on external CSS */
+        }
+
+        /* Style for the Time Table Image */
+        .card img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 15px;
+            border-radius: 8px; /* Consistent border radius */
+            border: 3px solid #cce5ff; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-btn {
+            display: inline-block;
+            /* Use secondary color for the button */
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.1s;
+            font-weight: 600;
+        }
+
+        .download-btn:hover {
+            background-color: #0056b3; /* Darker secondary color on hover */
+            transform: translateY(-1px);
+        }
+        
+        /* Utility class for margin top on buttons */
+        .mt-4 {
+            margin-top: 20px;
+        }
+
+        /* Enhanced Footer Style */
+        footer {
+            /* Match the primary color of the header's darker part */
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px; /* More padding for a better look */
+            margin-top: 40px;
+            font-size: 1.05rem;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 15px 20px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            #card-container {
+                padding: 10px;
+            }
+            .card {
+                padding: 15px;
+            }
+            .download-btn {
+                width: 100%;
+                text-align: center;
+                box-sizing: border-box; 
+            }
+            
+            .rect-card {
+                flex-direction: row;
+                height: auto;
+            }
+
+            .rect-card img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .rect-card-content {
+                padding: 10px;
+            }
+            
+            .rect-card-content h4 {
+                font-size: 16px;
+            }
+        }
